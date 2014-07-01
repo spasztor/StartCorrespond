@@ -13,7 +13,7 @@ import logging
 import sys
 import os
 import shutil
-
+import subprocess
 
 # Constants:
 """ The corrosponding arguments are associated with the following program and userform with 
@@ -44,12 +44,13 @@ SRC_PRGM = {ARG[0] : ["inventfe2013.accdb", "inventfe"],
 
 SRC_DIR = "H:/admin/DATABASE/FrontEnd/2013/"
 DEST = "C:/Access/HGGMain/2013/"
+SRC_ACCESS = "C:/Program Files/Microsoft Office 15/root15/msaccess.exe"
 
   
 # Initiate Logging:
 LOG_FILENAME = DEST + "traceback.log"
 
-if os.path.isfile(LOG_FILENAME) == True: # Clean exisiting log if exist
+if os.path.isfile(LOG_FILENAME) == True: # Clean existing log if exist
     os.remove(LOG_FILENAME)
 
 logging.basicConfig(filename = LOG_FILENAME, level = logging.DEBUG)
@@ -58,6 +59,8 @@ def main_driver():
     if len(sys.argv) > 1 and sys.argv[1] in ARG: # if it is a valid argument, then copy file:
         src_path = os.path.join(SRC_DIR, SRC_PRGM[sys.argv[1]][0])
         shutil.copy(src_path,DEST)
+        
+        subprocess.call(SRC_ACCESS, src_path, SRC_PRGM[sys.argv[1]][1])
           
     else: # else copy all files:
         for item in ARG:

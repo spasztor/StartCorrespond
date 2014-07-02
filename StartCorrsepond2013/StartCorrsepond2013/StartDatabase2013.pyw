@@ -61,15 +61,16 @@ def main_driver():
         src_path = os.path.join(SRC_DIR, SRC_PRGM[sys.argv[1]][0])
         shutil.copy(src_path,DEST)
 
-        process_path = DEST + SRC_PRGM[sys.argv[1]][0]
+        process_path = os.path.join(DEST,SRC_PRGM[sys.argv[1]][0])
         process_macro = "/x macStart" + SRC_PRGM[sys.argv[1]][1]
         
         """ What follows is a cocky roundabout to calling the access database file. I wasn't able 
             to call msaccess.exe and then pass in the .accdb file because I recieved a file does  
             not exit windows error 193 error. Thus I am bypassing it and using command prompt. """
          
-        subprocess.Popen([CMD_PATH, "/c", process_path, process_macro], shell = False)
+        subprocess.Popen([CMD_PATH, '/c', 'start', process_path, process_macro], shell = False)  
           
+
     else: # else copy all files:
         for item in ARG:
             src_path = os.path.join(SRC_DIR, SRC_PRGM[item][0])

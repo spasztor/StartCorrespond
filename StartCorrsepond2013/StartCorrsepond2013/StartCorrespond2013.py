@@ -44,7 +44,8 @@ SRC_PRGM = {ARG[0] : ["inventfe2013.accdb", "inventfe"],
 
 SRC_DIR = "H:/admin/DATABASE/FrontEnd/2013/"
 DEST = "C:/Access/HGGMain/2013/"
-SRC_ACCESS = "C:/Program Files/Microsoft Office 15/root15/msaccess.exe"
+SRC_ACCESS = "C:/Program Files/Microsoft Office 15/root/office15/msaccess.exe"
+CMD_PATH = "C:\Windows\System32\cmd.exe"
 
   
 # Initiate Logging:
@@ -56,11 +57,18 @@ if os.path.isfile(LOG_FILENAME) == True: # Clean existing log if exist
 logging.basicConfig(filename = LOG_FILENAME, level = logging.DEBUG)
 
 def main_driver():
-    if len(sys.argv) > 1 and sys.argv[1] in ARG: # if it is a valid argument, then copy file:
+    if len(sys.argv) > 1 and (sys.argv[1] in ARG): # if it is a valid argument, then copy file:
         src_path = os.path.join(SRC_DIR, SRC_PRGM[sys.argv[1]][0])
         shutil.copy(src_path,DEST)
+
+        process_path = DEST + SRC_PRGM[sys.argv[1]][0]
+        process_macro = "/x macStart" + SRC_PRGM[sys.argv[1]][1]
         
-        subprocess.call(SRC_ACCESS, src_path, SRC_PRGM[sys.argv[1]][1])
+        """ What follows is a cocky roundabout to calling the access database file. I wasn't able 
+            to call msaccess.exe and then pass in the .accdb file because I recieved a file does  
+            not exit windows error 193 error. Thus I am bypassing it and using command prompt. """
+         
+        subprocess.Popen([CMD_PATH, "/c", process_path, process_macro], shell = False)
           
     else: # else copy all files:
         for item in ARG:

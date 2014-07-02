@@ -4,13 +4,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a6587894-5ca3-41b6-9dd0-6e7593c3eeb3</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>StartCorrespond2013.py</StartupFile>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>StartDatabase2013.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>StartCorrsepond2013</Name>
+    <Name>StartDatabase2013</Name>
     <RootNamespace>StartCorrsepond2013</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
     <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
@@ -31,7 +32,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="StartCorrespond2013.py" />
+    <Compile Include="StartDatabase2013.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.4" />

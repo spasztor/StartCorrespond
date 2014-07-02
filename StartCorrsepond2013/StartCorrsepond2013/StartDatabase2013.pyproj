@@ -6,7 +6,7 @@
     <ProjectGuid>a6587894-5ca3-41b6-9dd0-6e7593c3eeb3</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>StartDatabase2013.py</StartupFile>
+    <StartupFile>StartDatabase2013.pyw</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -32,7 +32,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="StartDatabase2013.py" />
+    <Compile Include="setup.py" />
+    <Compile Include="StartDatabase2013.pyw" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.4" />

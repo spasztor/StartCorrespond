@@ -32,6 +32,7 @@ import subprocess
     9: "corresfe2013.accdb", "Search" - Search """
 
 ARG = ['/1', '/2', '/3', '/4', '/5', '/6', '/7', '/8', '/9']
+ARG_OPTIONS = ['/edit']
 SRC_PRGM = {ARG[0] : ["inventfe2013.accdb", "inventfe"],    
             ARG[1] : ["corresfe2013.accdb", "Corresfe"],     
             ARG[2] : ["DCNames2013.accdb", "DCNames"],      
@@ -59,8 +60,12 @@ logging.basicConfig(filename = LOG_FILENAME, level = logging.DEBUG)
 def main_driver():
     if len(sys.argv) > 1 and (sys.argv[1] in ARG): # if it is a valid argument, then copy file:
         src_path = os.path.join(SRC_DIR, SRC_PRGM[sys.argv[1]][0])
-        shutil.copy(src_path,DEST)
-
+        
+        if os.path.isfile(src_path) == True and len(sys.argv) == 3 and sys.argv[2] in ARG_OPTIONS):
+            pass # Don't copy any file.
+        else:
+            shutil.copy(src_path,DEST)
+        
         process_path = os.path.join(DEST,SRC_PRGM[sys.argv[1]][0])
         process_macro = "/x macStart" + SRC_PRGM[sys.argv[1]][1]
         

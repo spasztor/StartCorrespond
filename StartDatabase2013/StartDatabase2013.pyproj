@@ -51,7 +51,9 @@
     <Content Include="release\exe_07-0-714v1.0.1\StartDatabase2013.exe" />
     <Content Include="release\exe_07-0-714v1.0.1\StartDatabase2013.exe - Shortcut.lnk" />
     <Content Include="release\_latest\StartDatabase2013.exe" />
-    <Content Include="_build\build.bat" />
+    <Compile Include="_build\build.bat">
+      <Publish>True</Publish>
+    </Compile>
     <Content Include="_msc\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

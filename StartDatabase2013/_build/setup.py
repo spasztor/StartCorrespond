@@ -2,8 +2,8 @@
 from distutils.core import setup
 import py2exe
 
-setup(windows=["../StartDatabase2013.pyw",
-               {"icon_resources" : [(1, "../_msc/icon.ico")]}],
+setup(windows=[{"script" : "../StartDatabase2013.pyw",
+                "icon_resources" : [(1, "../_msc/icon.ico")]}],
       zipfile=None,
       options={"py2exe" : {"bundle_files" : 1,
                            "compressed" : 1,

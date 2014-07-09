@@ -40,21 +40,15 @@
     <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.4" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="release\" />
-    <Folder Include="release\exe_07-0-714v1.0.1\" />
-    <Folder Include="release\_latest\" />
     <Folder Include="_build\" />
     <Folder Include="_msc\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="release\exe_07-0-714v1.0.1\ReadMe.txt" />
-    <Content Include="release\exe_07-0-714v1.0.1\StartDatabase2013.exe" />
-    <Content Include="release\exe_07-0-714v1.0.1\StartDatabase2013.exe - Shortcut.lnk" />
-    <Content Include="release\_latest\StartDatabase2013.exe" />
     <Compile Include="_build\build.bat">
       <Publish>True</Publish>
     </Compile>
     <Content Include="_msc\ReadMe.txt" />
+    <Content Include="_msc\icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>
